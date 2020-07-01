@@ -11,9 +11,16 @@ import { HeaderComponent } from './shared/header/header.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { BreadcrumbsComponent } from './shared/breadcrumbs/breadcrumbs.component';
 import { NopagefoundComponent } from './shared/nopagefound/nopagefound.component';
-import { APP_ROUTES } from './app.routes';
+
 
 // Rutas //
+
+import { APP_ROUTES } from './app.routes';
+import { HttpClientModule } from '@angular/common/http';
+import { SesionesUsuariosComponent } from './pages/sesiones-usuarios/sesiones-usuarios.component';
+import { UsuarioComponent } from './pages/usuarios/usuario.component';
+
+
 
 @NgModule({
   declarations: [
@@ -25,10 +32,13 @@ import { APP_ROUTES } from './app.routes';
     HeaderComponent,
     SidebarComponent,
     BreadcrumbsComponent,
+    SesionesUsuariosComponent,
+    UsuarioComponent,
   ],
   imports: [
     BrowserModule,
-    APP_ROUTES
+    APP_ROUTES,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

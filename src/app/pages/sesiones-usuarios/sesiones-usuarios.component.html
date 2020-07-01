@@ -1,6 +1,6 @@
 <div class="row page-titles">
     <div class="col-md-5 align-self-center">
-        <h3 class="text-themecolor">Sesiones</h3>
+        <h3 class="text-themecolor">Sesiones Usuario</h3>
     </div>
 
 </div>
@@ -17,7 +17,7 @@
     </div>
 </div>
 
-<div class="row animated fadeIn" *ngIf="cargando">
+<div class="row animated fadeIn" *ngIf="loading">
     <div class="col-sm-12">
         <div class="alert alert-warning text-center">
             <strong>Cargando</strong>
@@ -29,38 +29,36 @@
 </div>
 
 
-<div class="row animated fadeIn" *ngIf="!cargando">
+<div class="row animated fadeIn" *ngIf="!loading">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h3 class="card-title">Sesiones registradas ( <small>1</small> )</h3>
+                <h3 class="card-title">Usuarios para la sesión ( <small>{{sesion}}</small> )</h3>
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>Fecha de Inicio</th>
-                            <th>Fecha de Fin</th>
-                            <th>Actividad</th>
-                            <th>Entrenador</th>
+                            <th>Usuario</th>
+                            <th>Sesión</th>
+                            <th>Confirmado</th>
                             <th>Fecha de Registro</th>
                             <th>Fecha última modificación</th>
-                            <th>Sesion-Usuarios</th>
                             <th></th>
 
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>{{sesion.fechaInicio | date:'hh:mm | dd-MM-yyyy '}}</td>
-                            <td>{{sesion.fechaFin | date:'hh:mm | dd-MM-yyyy '}}</td>
-                            <td>{{sesion.actividad}}</td>
-                            <td>{{sesion.entrenador.nombre}}</td>
-                            <td>{{sesion.created_at | date:'dd-MM-yyyy' }}</td>
-                            <td>{{sesion.updated_at | date:'dd-MM-yyyy hh:mm' }}</td>
+                        <tr *ngFor="let sesiones_usuarios of sesionesUsuario">
                             <td>
-                                <button (click)="sesionUsuarios(sesion.sesion_usuarios)" class="btn btn-primary mr-1">
-                                    {{ sesion.sesion_usuarios.length}}
+
+                                <button [routerLink]="['/usuario', sesiones_usuarios.usuario]" class="btn btn-primary mr-1">
+                                    {{sesiones_usuarios.usuario}}
                                 </button>
                             </td>
+                            <td>{{sesiones_usuarios.sesion}}</td>
+                            <td>{{sesiones_usuarios.confirmado}}</td>
+                            <td>{{sesiones_usuarios.created_at | date:'dd-MM-yyyy' }}</td>
+                            <td>{{sesiones_usuarios.updated_at | date:'dd-MM-yyyy hh:mm' }}</td>
+
                             <td>
                                 <button class="btn btn-primary">
                                     <i class="fa fa-save"></i>
