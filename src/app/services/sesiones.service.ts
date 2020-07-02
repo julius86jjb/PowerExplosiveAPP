@@ -12,7 +12,7 @@ export class SesionesService {
   constructor(public http: HttpClient) { }
 
 
-  cargarSesion(id) {
+  cargarSesion(id = 33) {
 
     const url = URL_SERVICIOS + '/sesiones/' + id;
 
