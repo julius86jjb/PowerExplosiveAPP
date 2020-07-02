@@ -12,9 +12,9 @@ export class SesionesService {
   constructor(public http: HttpClient) { }
 
 
-  cargarSesion() {
+  cargarSesion(id) {
 
-    const url = URL_SERVICIOS + '/sesiones/33';
+    const url = URL_SERVICIOS + '/sesiones/' + id;
 
     return this.http.get(url);
   }

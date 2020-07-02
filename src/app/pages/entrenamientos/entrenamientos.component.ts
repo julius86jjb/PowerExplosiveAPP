@@ -13,6 +13,7 @@ export class EntrenamientosComponent implements OnInit {
 
   sesion: Sesion;
   cargando: boolean;
+  idSesion: 33;
 
   constructor(public sesionService: SesionesService,
               public router: Router) { }
@@ -24,7 +25,7 @@ export class EntrenamientosComponent implements OnInit {
 
   cargarSesion() {
     this.cargando = true;
-    this.sesionService.cargarSesion()
+    this.sesionService.cargarSesion(this.idSesion)
       .subscribe((resp: any) => {
         console.log(resp);
         this.sesion = resp;

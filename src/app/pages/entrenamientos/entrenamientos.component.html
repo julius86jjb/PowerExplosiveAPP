@@ -43,7 +43,7 @@
                             <th>Entrenador</th>
                             <th>Fecha de Registro</th>
                             <th>Fecha última modificación</th>
-                            <th>Sesion-Usuarios</th>
+                            <th>Apuntados</th>
                             <th></th>
 
                         </tr>
@@ -52,14 +52,14 @@
                         <tr>
                             <td>{{sesion.fechaInicio | date:'hh:mm | dd-MM-yyyy '}}</td>
                             <td>{{sesion.fechaFin | date:'hh:mm | dd-MM-yyyy '}}</td>
-                            <td>{{sesion.actividad}}</td>
+                            <td><a [routerLink]="['/sesion',sesion.id]">{{sesion.actividad}}</a></td>
                             <td>{{sesion.entrenador.nombre}}</td>
                             <td>{{sesion.created_at | date:'dd-MM-yyyy' }}</td>
                             <td>{{sesion.updated_at | date:'dd-MM-yyyy hh:mm' }}</td>
                             <td>
-                                <button (click)="sesionUsuarios(sesion.sesion_usuarios)" class="btn btn-primary mr-1">
-                                    {{ sesion.sesion_usuarios.length}}
-                                </button>
+                                <a routerLink="" (click)="sesionUsuarios(sesion.sesion_usuarios)">
+                                    <span class="label label-info">{{ sesion.sesion_usuarios.length}}</span>
+                                </a>
                             </td>
                             <td>
                                 <button class="btn btn-primary">

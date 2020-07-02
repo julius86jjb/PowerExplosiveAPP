@@ -21,6 +21,7 @@ import { APP_ROUTES } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 import { SesionesUsuariosComponent } from './pages/sesiones-usuarios/sesiones-usuarios.component';
 import { UsuarioComponent } from './pages/usuarios/usuario.component';
+import { SesionComponent } from './pages/entrenamientos/sesion.component';
 
 
 
@@ -36,6 +37,7 @@ import { UsuarioComponent } from './pages/usuarios/usuario.component';
     BreadcrumbsComponent,
     SesionesUsuariosComponent,
     UsuarioComponent,
+    SesionComponent
   ],
   imports: [
     BrowserModule,

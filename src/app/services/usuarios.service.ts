@@ -26,5 +26,10 @@ export class UsuariosService {
           map( (resp: any) => resp.entrenador)
         );
   }
+
+  cargarUsuario(id: string) {
+    const url = URL_SERVICIOS + '/usuarios/' + id;
+    return this.http.get(url);
+}
 }
 

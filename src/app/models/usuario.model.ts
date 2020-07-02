@@ -8,6 +8,6 @@ export class Usuario {
         public created_at: Date,
         public updated_at: Date,
         public sesiones: Sesion[],
-        public sesionUsuarios: SesionUsuario[]
+        public sesion_usuarios: SesionUsuario[]
 ) { }
 }

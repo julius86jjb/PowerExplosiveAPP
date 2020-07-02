@@ -5,11 +5,13 @@ import { EntrenamientosComponent } from './pages/entrenamientos/entrenamientos.c
 import { NopagefoundComponent } from './shared/nopagefound/nopagefound.component';
 import { SesionesUsuariosComponent } from './pages/sesiones-usuarios/sesiones-usuarios.component';
 import { UsuarioComponent } from './pages/usuarios/usuario.component';
+import { SesionComponent } from './pages/entrenamientos/sesion.component';
 
 
 const appRoutes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'sesiones', component: EntrenamientosComponent},
+    {path: 'sesion/:id', component: SesionComponent},
     {path: 'usuarios', component: UsuariosComponent},
     {path: 'usuario/:id', component: UsuarioComponent},
     {path: 'sesion-usuarios', component: SesionesUsuariosComponent},

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { SesionUsuario } from '../../models/sesion-usuario.model';
 import { UsuariosService } from '../../services/usuarios.service';
 import { SesionesService } from '../../services/sesiones.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sesiones-usuarios',
@@ -68,6 +69,12 @@ export class SesionesUsuariosComponent implements OnInit {
         this.cargarSesionUsuarios();
 
       });
+    Swal.fire({
+        icon: 'success',
+        title: 'Asistente actualizado!',
+        text: 'El asistente ha sido actualizado correctamente',
+        confirmButtonText: 'Ok'
+    });
   }
 
 

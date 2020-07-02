@@ -1,6 +1,6 @@
 <div class="row page-titles">
     <div class="col-md-5 align-self-center">
-        <h3 class="text-themecolor">Ficha de Usuario</h3>
+        <h3 class="text-themecolor">Ficha de la sesion</h3>
     </div>
 
 </div>
@@ -25,20 +25,22 @@
                 <div class="d-flex flex-row">
                     <div class=""><img src="../assets/images/no-img.jpg" alt="user" class="img-circle" width="100"></div>
                     <div class="p-l-20">
-                        <h3 class="font-medium">{{usuario.nombre}}</h3>
-                        <h6>Fecha de registro:<br> <small>{{usuario.created_at | date:'hh:mm | dd-MM-yyyy '}}</small></h6>
-                        <h6>Fecha última actualización:<br> <small>{{usuario.updated_at | date:'hh:mm | dd-MM-yyyy '}}</small></h6>
-                        <button class="btn btn-success"><i class="ti-plus"></i> Seguir</button>
+                        <h3 class="font-medium">{{sesion.actividad}}</h3>
+                        <h5>Entrenador:<br> <small>{{sesion.entrenador.nombre}}</small></h5>
+                        <h6>Hora de Inicio:<br> <small>{{sesion.fechaInicio | date:'hh:mm | dd-MM-yyyy '}}</small></h6>
+                        <h6>Hora de Fin::<br> <small>{{sesion.fechaFin | date:'hh:mm | dd-MM-yyyy '}}</small></h6>
+                        <button class="btn btn-success"><i class="ti-plus"></i> Apuntarme</button>
                     </div>
                 </div>
                 <div class="row m-t-40">
+
                     <div class="col b-r text-center">
-                        <h2 class="font-light">{{usuario.sesiones.length}}</h2>
-                        <h6>Sesiones</h6>
+                        <h2 class="font-light">{{sesion.sesion_usuarios.length}}</h2>
+                        <h6>Apuntados</h6>
                     </div>
                     <div class="col b-r text-center">
-                        <h2 class="font-light">{{usuario.sesion_usuarios.length}}</h2>
-                        <h6>Sesion_Usuarios</h6>
+                        <h2 class="font-light">X</h2>
+                        <h6>Confirmados</h6>
                     </div>
                     <div class="col text-center">
                         <h2 class="font-light">145</h2>

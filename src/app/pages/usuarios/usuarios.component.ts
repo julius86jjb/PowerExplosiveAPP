@@ -18,8 +18,9 @@ export class UsuariosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.usuarios = [];
     this.cargarUsuarios();
-    this.cargarEntrenadores();
+    // this.cargarEntrenadores();
   }
 
   cargarUsuarios() {
@@ -28,20 +29,22 @@ export class UsuariosComponent implements OnInit {
       .subscribe((usuarios: any) => {
           this.usuarios = usuarios;
           this.cargando = false;
+          console.log(this.usuarios);
       });
 
   }
 
-  cargarEntrenadores() {
-    this.cargando = true;
-    this.usuarioService.cargarEntrenadores()
-      .subscribe((entrenadores: any) => {
-          console.log(entrenadores);
-          this.usuarios.push(entrenadores);
-          this.cargando = false;
-      });
+  // cargarEntrenadores() {
+  //   this.cargando = true;
+  //   this.usuarioService.cargarEntrenadores()
+  //     .subscribe((entrenadores: any) => {
+  //         console.log(entrenadores);
+  //         this.usuarios.push(entrenadores);
+  //         this.cargando = false;
+  //         console.log(this.usuarios);
+  //     });
 
-  }
+  // }
 
   cambiarDesde(valor: number) {
       const desde = this.desde + valor;
