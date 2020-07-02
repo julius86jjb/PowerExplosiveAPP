@@ -24,7 +24,7 @@ export class EntrenamientosComponent implements OnInit {
 
   cargarSesion() {
     this.cargando = true;
-    this.sesionService.cargarSesiones()
+    this.sesionService.cargarSesion()
       .subscribe((resp: any) => {
         console.log(resp);
         this.sesion = resp;
@@ -32,10 +32,18 @@ export class EntrenamientosComponent implements OnInit {
       });
   }
 
-  sesionUsuarios(sesionesusuarios) {
+  sesionUsuarios(sesionesUsuarios) {
+
+    const idSesionesUsuarios = [];
+
+    sesionesUsuarios.forEach(item => {
+      idSesionesUsuarios.push(item.id);
+    });
+
     const queryParams: any = {};
 
-    queryParams.myArray = JSON.stringify(sesionesusuarios);
+    queryParams.sesionesUsuarioID = JSON.stringify(idSesionesUsuarios);
+    queryParams.sesionID = this.sesion.id;
 
     const navigationExtras: NavigationExtras = {
       queryParams

@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 
 // Componentes //
 
@@ -38,7 +40,8 @@ import { UsuarioComponent } from './pages/usuarios/usuario.component';
   imports: [
     BrowserModule,
     APP_ROUTES,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
