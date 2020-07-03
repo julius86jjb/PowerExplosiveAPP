@@ -34,44 +34,61 @@
         <div class="card">
             <div class="card-body">
                 <h3 class="card-title">Sesiones registradas ( <small>1</small> )</h3>
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Fecha de Inicio</th>
-                            <th>Fecha de Fin</th>
-                            <th>Actividad</th>
-                            <th>Entrenador</th>
-                            <th>Fecha de Registro</th>
-                            <th>Fecha última modificación</th>
-                            <th>Apuntados</th>
-                            <th></th>
+                <div class="table-responsive">
+                    <table class="table vm no-th-brd pro-of-month table-hover">
+                        <thead>
+                            <tr>
+                                <th>Fecha de Inicio</th>
+                                <th>Fecha de Fin</th>
+                                <th>Actividad</th>
+                                <th>Entrenador</th>
+                                <!-- <th>Fecha de Registro</th> -->
+                                <!-- <th>Fecha última modificación</th> -->
+                                <th>Usuarios</th>
+                                <th></th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{{sesion.fechaInicio | date:'hh:mm | dd-MM-yyyy '}}</td>
-                            <td>{{sesion.fechaFin | date:'hh:mm | dd-MM-yyyy '}}</td>
-                            <td><a [routerLink]="['/sesion',sesion.id]">{{sesion.actividad}}</a></td>
-                            <td>{{sesion.entrenador.nombre}}</td>
-                            <td>{{sesion.created_at | date:'dd-MM-yyyy' }}</td>
-                            <td>{{sesion.updated_at | date:'dd-MM-yyyy hh:mm' }}</td>
-                            <td>
-                                <a routerLink="" (click)="sesionUsuarios(sesion.sesion_usuarios)">
-                                    <span class="label label-info">{{ sesion.sesion_usuarios.length}}</span>
-                                </a>
-                            </td>
-                            <td>
-                                <button class="btn btn-primary">
-                                    <i class="fa fa-save"></i>
-                                </button>
-                                <button class="btn btn-danger ml-1">
-                                    <i class="fa fa-trash-o"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <!-- <input [(ngModel)]="sesion.fechaInicio" type="text" name="fechaInicio" class="form-control"> -->
+                                    <input class="w170" [(ngModel)]="sesion.fechaInicio" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1">
+                                    <owl-date-time #dt1></owl-date-time>
+                                </td>
+                                <td>
+                                    <!-- <input [(ngModel)]="sesion.fechaInicio" type="text" name="fechaInicio" class="form-control"> -->
+                                    <input class="w170" [(ngModel)]="sesion.fechaFin" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2">
+                                    <owl-date-time #dt2></owl-date-time>
+                                </td>
+                                <!-- <td>{{sesion.fechaInicio | date:'hh:mm | dd-MM-yyyy '}}</td> -->
+                                <!-- <td>{{sesion.fechaFin | date:'hh:mm | dd-MM-yyyy '}}</td> -->
+                                <td><a [routerLink]="['/sesion',sesion.id]">{{sesion.actividad}}</a></td>
+                                <td>
+                                    <a [routerLink]="['/usuario', sesion.entrenador.id]">
+                                        {{sesion.entrenador.nombre}}
+                                    </a>
+                                </td>
+                                <!-- <td>{{sesion.created_at | date:'dd-MM-yyyy' }}</td> -->
+                                <!-- <td>{{sesion.updated_at | date:'dd-MM-yyyy hh:mm' }}</td> -->
+                                <td>
+                                    <a routerLink="" (click)="sesionUsuarios(sesion.sesion_usuarios)">
+                                        <span class="label label-info">{{ sesion.sesion_usuarios.length}}</span>
+                                    </a>
+                                </td>
+                                <td class="w110">
+                                    <button class="btn btn-primary" (click)="actualizarSesion( sesion )">
+                                        <i class="fa fa-save"></i>
+                                    </button>
+                                    <button class="btn btn-danger ml-1">
+                                        <i class="fa fa-trash-o"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
                 <button class="btn btn-secondary ">
                     Anterior
                 </button>

@@ -34,42 +34,45 @@
         <div class="card">
             <div class="card-body">
                 <h3 class="card-title">Usuarios registrados ( <small>{{usuarios.length}}</small> )</h3>
-                <table class="table vm no-th-brd pro-of-month">
-                    <thead>
-                        <tr>
-                            <th>Imagen</th>
-                            <th>Nombre</th>
-                            <th>Fecha de Registro</th>
-                            <th>Fecha última modificación</th>
-                            <th>Sesiones</th>
-                            <th>Sesion-Usuarios</th>
-                            <th></th>
+                <div class="table-responsive">
+                    <table class="table vm no-th-brd pro-of-month table-hover">
+                        <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Fecha de Registro</th>
+                                <th>Fecha última modificación</th>
+                                <!-- <th>Sesiones</th>
+                                <th>Sesion-Usuarios</th> -->
+                                <th></th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let usuario of usuarios">
-                            <td class="w70">
-                                <img src="../../../assets/images/no-img.jpg" class="img-50 img-circle">
-                            </td>
-                            <td>
-                                <a [routerLink]="['/usuario',usuario.id]">{{usuario.nombre}}</a>
-                            </td>
-                            <td>{{usuario.created_at | date:'dd-MM-yyyy' }}</td>
-                            <td>{{usuario.updated_at | date:'dd-MM-yyyy hh:mm' }}</td>
-                            <td>{{usuario.sesiones}}</td>
-                            <td>{{usuario.sesion_usuarios}}</td>
-                            <td>
-                                <button class="btn btn-primary">
-                                    <i class="fa fa-save"></i>
-                                </button>
-                                <button class="btn btn-danger ml-1">
-                                    <i class="fa fa-trash-o"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let usuario of usuarios">
+                                <td class="w70">
+                                    <img src="../../../assets/images/users/trainer.jpeg" class="img-50 img-circle">
+                                </td>
+                                <td class="w250">
+                                    <a [routerLink]="['/usuario',usuario.id]">{{usuario.nombre}}</a>
+                                </td>
+                                <td>{{usuario.created_at | date:'dd-MM-yyyy' }}</td>
+                                <td>{{usuario.updated_at | date:'dd-MM-yyyy hh:mm' }}</td>
+                                <!-- <td>{{usuario.sesiones}}</td>
+                                <td>{{usuario.sesion_usuarios}}</td> -->
+                                <td class="w110">
+                                    <button class="btn btn-primary">
+                                        <i class="fa fa-save"></i>
+                                    </button>
+                                    <button class="btn btn-danger ml-1">
+                                        <i class="fa fa-trash-o"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
                 <button (click)="cambiarDesde(10)" class="btn btn-secondary ">
                     Anterior
                 </button>

@@ -71,8 +71,8 @@ export class SesionesUsuariosComponent implements OnInit {
       });
     Swal.fire({
         icon: 'success',
-        title: 'Asistente actualizado!',
-        text: 'El asistente ha sido actualizado correctamente',
+        title: 'Usuario actualizado!',
+        text: 'El usuario ha sido actualizado correctamente',
         confirmButtonText: 'Ok'
     });
   }

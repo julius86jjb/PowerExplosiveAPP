@@ -12,15 +12,16 @@ export class SesionComponent implements OnInit {
 
   sesion: Sesion;
   loading = true;
-  idSesion = 33;
+  idSesion: number;
+  totalConfirmados = 0;
 
 
   constructor(public activatedRoute: ActivatedRoute,
               public sesionService: SesionesService) {
 
     activatedRoute.params.subscribe(params => {
-      const id = params.id;
-      this.cargarSesion(id);
+      this.idSesion = params.id;
+      this.cargarSesion();
 
     });
   }
@@ -28,13 +29,23 @@ export class SesionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  cargarSesion(id: string) {
+  cargarSesion() {
     this.loading = true;
     this.sesionService.cargarSesion(this.idSesion)
         .subscribe((sesion: Sesion) => {
             this.sesion = sesion;
-            console.log(this.sesion);
+            this.cargarConfirmados();
             this.loading = false;
+        });
+  }
+
+  cargarConfirmados() {
+    this.loading = true;
+    this.sesionService.cargarConfirmados(this.idSesion)
+        .subscribe((confirmados: number) => {
+          console.log(confirmados);
+          this.totalConfirmados = confirmados;
+          this.loading = false;
         });
   }
 
